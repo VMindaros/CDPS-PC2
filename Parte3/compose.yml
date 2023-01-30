@@ -1,0 +1,35 @@
+services:
+  product-page:
+    image: g29/product-page
+    container_name: g29-product-page
+    ports: 
+      - "9080:9080"
+    environment:
+      - GROUP_NUMBER=29
+
+  details:
+    image: g29/details
+    container_name: g29-details
+    ports: 
+      - "9081:9080"
+    depends_on: 
+      - product-page
+    environment:
+      - SERVICE_VERSION=v1
+      - ENABLE_EXTERNAL_BOOK_SERVICE=true
+
+  reviews:
+    image: g29/reviews:v3
+    container_name: g29-reviews
+    depends_on: 
+      - product-page
+
+  ratings:
+    image: g29/ratings
+    container_name: g29-ratings
+    ports: 
+      - "9082:9080"
+    depends_on: 
+      - reviews
+    environment:
+      - SERVICE_VERSION=v1

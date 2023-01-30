@@ -1,0 +1,11 @@
+FROM ruby:2.7.1-slim
+RUN apt-get update
+RUN apt-get install -y git
+RUN git clone https://github.com/CDPS-ETSIT/practica_creativa2.git
+WORKDIR /practica_creativa2/bookinfo/src/details
+RUN mkdir /opt/microservices
+RUN cp details.rb /opt/microservices/
+ENV ENABLE_EXTERNAL_BOOK_SERVICE=true
+CMD ["ruby", "/opt/microservices/details.rb", "9080"]
+
+# docker build -t g29/details .
