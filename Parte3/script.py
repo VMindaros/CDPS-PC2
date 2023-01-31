@@ -1,5 +1,7 @@
 import os
 
+os.system('docker rmi $(docker images --filter=reference="g29/*" -q)')
+
 services = ["product-page", "details", "reviews", "ratings"]
 
 for service in services:
