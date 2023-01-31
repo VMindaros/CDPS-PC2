@@ -13,3 +13,4 @@ CMD sed -i "s/Simple\sBookstore\sApp/g${GROUP_NUMBER}/g" index.html; \
     python3 /practica_creativa2/bookinfo/src/productpage/productpage_monolith.py 9080
 
 # docker build -t g29/product-page-mono .
+# docker run --name g29-product-page-mono -p 9080:9080 -e GROUP_NUMBER=29 -it g29/product-page 
