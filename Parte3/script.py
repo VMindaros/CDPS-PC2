@@ -13,4 +13,5 @@ for service in services:
     else:
         os.system(f"docker build -f Dockerfile_{service} -t g29/{service} .")
 
+os.system("docker rm -f $(docker ps -aq)")
 os.system("docker-compose up")
