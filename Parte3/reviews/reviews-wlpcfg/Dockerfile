@@ -16,7 +16,7 @@ ENV STAR_COLOR ${star_color:-black}
 
 CMD ["/opt/ibm/wlp/bin/server", "run", "defaultServer"]
 
-# docker build --build-arg service_version=v1 -t g29/reviews:v1 .
+# docker build --build-arg -t g29/reviews:v1 .
 
 # docker build --build-arg service_version=v2 --build-arg \
 #     enable_ratings=true -t  g29/reviews:v2 .
